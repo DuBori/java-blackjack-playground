@@ -1,5 +1,6 @@
 package nextstep.fp;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Lambda {
@@ -27,11 +28,8 @@ public class Lambda {
     }
 
     public static int sumAll(List<Integer> numbers) {
-        int total = 0;
-        for (int number : numbers) {
-            total += number;
-        }
-        return total;
+        return numbers.stream()
+                .mapToInt(value -> value).sum();
     }
 
     public static int sumAllEven(List<Integer> numbers) {
@@ -41,7 +39,10 @@ public class Lambda {
                 total += number;
             }
         }
-        return total;
+        return numbers.stream()
+                .filter(it -> it % 2 == 0)
+                .mapToInt(value -> value)
+                .sum();
     }
 
     public static int sumAllOverThree(List<Integer> numbers) {
