@@ -31,6 +31,7 @@ public class StreamStudy {
         // TODO 이 부분에 구현한다.
         words.stream()
                 .filter(it -> it.length() > 12)
+                .map(it -> it.toLowerCase())
                 .sorted(Comparator.comparing(it -> it.toString().length()).reversed())
                 .distinct().limit(100)
                 .forEach(System.out::println);
