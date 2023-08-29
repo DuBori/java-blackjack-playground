@@ -52,6 +52,9 @@ public class Lambda {
                 total += number;
             }
         }
-        return total;
+        return numbers.stream()
+                .filter(it -> it > 3)
+                .mapToInt(value -> value)
+                .sum();
     }
 }
