@@ -5,9 +5,11 @@ import java.util.Objects;
 
 public class User extends Human {
 
-    public User(String name) {
+    public User(String name, int price) {
         super.name = name;
+        super.totalPrice = price;
     }
+
 
     @Override
     public boolean equals(Object o) {

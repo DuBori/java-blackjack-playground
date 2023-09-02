@@ -8,6 +8,10 @@ public abstract class Human {
 
     public String name;
 
+    public String getName() {
+        return name;
+    }
+
     public void pickCard(Cards cards, Card card) {
         cards.popCard(card);
         this.cards.getList().add(card);
