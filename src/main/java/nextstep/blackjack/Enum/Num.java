@@ -1,6 +1,7 @@
 package nextstep.blackjack.Enum;
 
 public enum Num {
+
     ACE(1),
     TWO(2),
     THREE(3),
@@ -14,6 +15,13 @@ public enum Num {
     JACK(10),
     QUEEN(10),
     KING(10);
+    private int value;
+    Num(int num) {
+        this.value = num;
+    }
 
-    Num(int num) {}
+    public int getValue() {
+        return value;
+    }
+
 }

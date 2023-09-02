@@ -1,7 +1,17 @@
 package nextstep.blackjack;
 
-public interface Human {
+public abstract class Human {
 
-    void pick();
+    public Cards cards = new Cards(null);
+
+    public int totalPrice;
+
+    public String name;
+
+    public void pickCard(Cards cards, Card card) {
+        cards.popCard(card);
+        this.cards.getList().add(card);
+    }
+
 
 }

@@ -3,13 +3,10 @@ package nextstep.blackjack;
 import java.util.List;
 import java.util.Objects;
 
-public class User implements Human {
-    private List<Card> list;
-    private String name;
-    private int money;
+public class User extends Human {
 
     public User(String name) {
-
+        super.name = name;
     }
 
     @Override
@@ -25,8 +22,4 @@ public class User implements Human {
         return Objects.hash(name);
     }
 
-    @Override
-    public void pick() {
-
-    }
 }
