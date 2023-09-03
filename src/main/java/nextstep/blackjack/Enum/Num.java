@@ -15,6 +15,7 @@ public enum Num {
     JACK(10),
     QUEEN(10),
     KING(10);
+    public static final int  ACE_VALUE = 11;
     private int value;
     Num(int num) {
         this.value = num;

@@ -50,11 +50,8 @@ public class GameMain {
     }
 
     private static void settingCard(List<User> users) {
-        /*
-            System.out.println("딜러와 pobi, jason에게 2장의 나누었습니다.");
-            for (User user : users) {
+        for (int i = 0; i < 2; i++) {
 
-            }
-        */
+        }
     }
 }

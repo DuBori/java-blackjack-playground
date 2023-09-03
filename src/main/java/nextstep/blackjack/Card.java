@@ -6,8 +6,6 @@ import nextstep.blackjack.Enum.Suit;
 import java.util.Objects;
 
 public class Card {
-
-    public static final int  ACE_VALUE = 11;
     private Suit suit;
     private Num num;
 

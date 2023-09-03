@@ -19,7 +19,7 @@ public class Dealer extends Human {
                 .anyMatch(it-> Num.ACE == it.getNum());
     }
     private int containAceTotal() {
-        return Card.ACE_VALUE + super.cards.getList()
+        return Num.ACE_VALUE + super.cards.getList()
                 .stream()
                 .filter(it -> Num.ACE != it.getNum())
                 .mapToInt(it-> it.getNum().getValue())
