@@ -22,12 +22,8 @@ public class Users {
         }
     }
 
-    public void isPickMore() {
-        for (User user : users) {
-            if (user.isStopRange()) {
-
-            }
-        }
+    public List<User> getUsers() {
+        return users;
     }
 
     @Override

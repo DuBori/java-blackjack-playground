@@ -18,12 +18,47 @@ public class GameMain {
     private static void playBlackJack() {
         setting();
         Users users = settingPlayer();
+        setCard(users);
+        chooseMorePickCard(users);
+        getMassage(users);
+    }
+
+    private static void getMassage(Users users) {
+        System.out.println(dealer.toString());
+        System.out.println(users.toString());
+    }
+
+    private static void chooseMorePickCard(Users users) {
+        for (User user: users.getUsers()) {
+            System.out.println(user.name+"는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)");
+            String input = sc.next();
+            do {
+                morePick(user, input);
+            }while (isInputYN(input) && !user.morePickCard());
+        }
+    }
+
+    private static void morePick(User user, String input) {
+        if ("y".equals(input)) {
+            System.out.println(user.name + ":" + user.pickCard(cards).toString());
+        }
+    }
+
+    private static boolean isInputYN(String input) {
+        if ("y".equals(input) || "n".equals(input)) {
+            return false;
+        }
+        System.out.println("y 또는 n 값을 입력해 주세요.");
+        return true;
+    }
+
+    private static void setCard(Users users) {
         users.settingInitCard(cards);
         dealer.settingInitCard(cards);
         System.out.println(users);
         System.out.println("dealer : " + dealer.toString());
-        users.isPickMore();
     }
+
     private static void setting() {
         cards = new Cards();
         sc = new Scanner(System.in);
@@ -50,7 +85,7 @@ public class GameMain {
 
     private static void make(Users users, String name) {
         System.out.print(name + "의 배팅 금액은?");
-        users.setMoney(name,sc.nextInt());
+        users.setMoney(name, sc.nextInt());
     }
 
 

@@ -12,9 +12,10 @@ public abstract class Human {
         return name;
     }
 
-    public void pickCard(Cards cards) {
+    public Card pickCard(Cards cards) {
         Card card = cards.popCard();
         this.cards.add(card);
+        return card;
     }
 
     public boolean isPickThanTwo() {

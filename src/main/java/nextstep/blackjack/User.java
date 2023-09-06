@@ -10,11 +10,8 @@ public class User extends Human {
         super.totalPrice = price;
     }
 
-    public boolean isStopRange() {
-        if (cards.isContainAce()) {
-            return cards.isStopRangeIncludeAce();
-        }
-        return cards.isStopRange();
+    public boolean morePickCard() {
+        return cards.sum() < Cards.CARDS_MAX_TOTAL;
     }
 
     @Override
