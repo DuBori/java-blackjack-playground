@@ -12,10 +12,18 @@ public abstract class Human {
         return name;
     }
 
-    public void pickCard(Cards cards, Card card) {
-        cards.popCard(card);
-        this.cards.getList().add(card);
+    public void pickCard(Cards cards) {
+        Card card = cards.popCard();
+        this.cards.add(card);
     }
 
+    public boolean isPickThanTwo() {
+        return cards.getList().size() >= 2;
+    }
+
+    @Override
+    public String toString() {
+        return cards.toString();
+    }
 
 }

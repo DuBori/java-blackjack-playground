@@ -7,31 +7,12 @@ public class Dealer extends Human {
     public Dealer() {
     }
 
-    public boolean isStopRange() {
-        if (isContainAce()) {
-            return containAceTotal() > Cards.CARDS_MIN_TOTAL && containAceTotal() <= Cards.CARDS_MAX_TOTAL;
+    public void settingInitCard(Cards cards) {
+        while (!isPickThanTwo()) {
+            pickCard(cards);
         }
-        return sum() <= Cards.CARDS_MAX_TOTAL && sum() > Cards.CARDS_MIN_TOTAL;
+        if (!cards.isContainAce() && !cards.isStopRange() || cards.isContainAce() && !cards.isStopRange()) {
+            pickCard(cards);
+        }
     }
-    private boolean isContainAce() {
-        return super.cards.getList()
-                .stream()
-                .anyMatch(it-> Num.ACE == it.getNum());
-    }
-    private int containAceTotal() {
-        return Num.ACE_VALUE + super.cards.getList()
-                .stream()
-                .filter(it -> Num.ACE != it.getNum())
-                .mapToInt(it-> it.getNum().getValue())
-                .sum();
-    }
-
-    private int sum() {
-        return super.cards.getList()
-                .stream()
-                .mapToInt(it -> it.getNum().getValue())
-                .sum();
-    }
-
-
 }

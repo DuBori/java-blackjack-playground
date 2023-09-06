@@ -10,6 +10,12 @@ public class User extends Human {
         super.totalPrice = price;
     }
 
+    public boolean isStopRange() {
+        if (cards.isContainAce()) {
+            return cards.isStopRangeIncludeAce();
+        }
+        return cards.isStopRange();
+    }
 
     @Override
     public boolean equals(Object o) {

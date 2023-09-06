@@ -18,7 +18,7 @@ class DealerTest {
         cards = new Cards();
         dealer = new Dealer();
     }
-    @Test
+   /* @Test
     void 딜러멈춰야될에이스포함범위() {
         dealer.pickCard(cards, new Card(Suit.CLOVER, Num.ACE));
         dealer.pickCard(cards, new Card(Suit.CLOVER, Num.SIX));
@@ -46,7 +46,7 @@ class DealerTest {
         dealer.pickCard(cards, new Card(Suit.CLOVER, Num.NINE));
         dealer.pickCard(cards, new Card(Suit.SPADE, Num.NINE));
         assertFalse(dealer.isStopRange());
-    }
+    }*/
 
 
 

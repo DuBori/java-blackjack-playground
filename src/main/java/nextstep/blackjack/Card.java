@@ -6,6 +6,7 @@ import nextstep.blackjack.Enum.Suit;
 import java.util.Objects;
 
 public class Card {
+    public static final String SPLITOR = "_";
     private Suit suit;
     private Num num;
 
@@ -14,16 +15,17 @@ public class Card {
         this.num = num;
     }
 
+    public boolean notAce() {
+        return Num.ACE.equals(num);
+    }
+
     public Num getNum() {
         return num;
     }
 
     @Override
     public String toString() {
-        return "Card{" +
-                "suit=" + suit +
-                ", num=" + num +
-                '}';
+        return num.name() + SPLITOR + suit.name();
     }
 
     @Override
