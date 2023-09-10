@@ -1,17 +1,25 @@
 package nextstep.blackjack;
 
-import java.util.List;
 import java.util.Objects;
 
 public class User extends Human {
 
-    public User(String name, int price) {
+    private int batPrice;
+    public User(String name, int batPrice) {
         super.name = name;
-        super.totalPrice = price;
+        this.batPrice = batPrice;
     }
 
-    public boolean morePickCard() {
-        return cards.sum() < Cards.CARDS_MAX_TOTAL;
+    public int getBatPirce() {
+        return batPrice;
+    }
+
+    public void take(int batPirce, double percent) {
+        totalPrice += batPirce * percent;
+    }
+
+    public boolean isTowPick() {
+        return cards.getList().size() == 2;
     }
 
     @Override

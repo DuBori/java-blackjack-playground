@@ -18,8 +18,11 @@ public abstract class Human {
         return card;
     }
 
-    public boolean isPickThanTwo() {
-        return cards.getList().size() >= 2;
+    public int score() {
+        if (cards.containsAce()) {
+            return cards.aceSum();
+        }
+        return cards.sum();
     }
 
     @Override
@@ -27,4 +30,7 @@ public abstract class Human {
         return cards.toString();
     }
 
+    public int getTotalPrice() {
+        return totalPrice;
+    }
 }

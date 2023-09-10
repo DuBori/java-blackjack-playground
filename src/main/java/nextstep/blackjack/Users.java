@@ -5,25 +5,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Users {
+    public static final int MIN_USER = 1;
+    public static final int MAX_USER = 9;
 
     private List<User> users = new ArrayList<>();
-
     public Users() {}
-
-    public void setMoney(String name, int batPrice) {
-        users.add(new User(name, batPrice));
-    }
-
-    public void settingInitCard(Cards cards) {
-        for (int i = 0; i < 2; i++) {
-            for (User user : users) {
-                user.pickCard(cards);
-            }
-        }
-    }
 
     public List<User> getUsers() {
         return users;
+    }
+
+    public void addUser(String name, int batPirce) {
+        users.add(new User(name, batPirce));
     }
 
     @Override
@@ -31,5 +24,11 @@ public class Users {
         return users.stream()
                 .map(it -> it.getName()+": "+ it.cards.toString())
                 .collect(Collectors.joining("\n"));
+    }
+
+    public void checkMember() {
+        if (users.size() > MAX_USER || users.size() < MIN_USER) {
+            throw new IllegalArgumentException("블랙잭 참가 인원은 최소 2명 ~최대 8명입니다.");
+        }
     }
 }

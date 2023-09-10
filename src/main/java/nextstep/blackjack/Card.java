@@ -15,8 +15,8 @@ public class Card {
         this.num = num;
     }
 
-    public boolean notAce() {
-        return Num.ACE.equals(num);
+    boolean equalsAce() {
+        return num.equalsAce();
     }
 
     public Num getNum() {

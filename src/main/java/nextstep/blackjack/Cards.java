@@ -40,27 +40,14 @@ public class Cards {
     }
 
     private void removeCard(Card card) {
-        list.remove(list.stream()
-                .filter(it -> card.equals(it))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException()));
+        list.remove(list.indexOf(card));
     }
 
-    public boolean isContainAce() {
+    public boolean containsAce() {
         return list.stream()
                 .anyMatch(it -> Num.ACE.equals(it.getNum()));
     }
 
-    public boolean isStopRange() {
-        if (isContainAce()) {
-            return isStopRangeIncludeAce();
-        }
-        return sum() <= Cards.CARDS_MAX_TOTAL && sum() > Cards.CARDS_MIN_TOTAL;
-    }
-
-    public boolean isStopRangeIncludeAce() {
-        return containAceTotal() > Cards.CARDS_MIN_TOTAL && containAceTotal() <= Cards.CARDS_MAX_TOTAL;
-    }
 
     public int sum() {
         return list.stream()
@@ -68,17 +55,13 @@ public class Cards {
                 .sum();
     }
 
-    public int containAceTotal() {
-        return Num.ACE_VALUE + list.stream()
-                .filter(it -> it.notAce())
-                .mapToInt(it -> it.getNum().getValue())
-                .sum();
+    public int aceSum() {
+       List<Card> collect = list.stream().filter(it -> it.equalsAce())
+               .collect(Collectors.toList());
+       int size = collect.size();
+       collect.forEach(it -> list.remove(it));
+       return sum() + 11 + (size - 1);
     }
-
-    public boolean isBust() {
-        return sum() > 21;
-    }
-
 
     @Override
     public String toString() {

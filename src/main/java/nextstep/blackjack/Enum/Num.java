@@ -21,6 +21,9 @@ public enum Num {
         this.value = num;
     }
 
+    public boolean equalsAce() {
+        return this == ACE;
+    }
     public int getValue() {
         return value;
     }
